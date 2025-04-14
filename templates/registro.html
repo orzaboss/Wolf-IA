@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WOLFAI - Registro</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      color: #fff;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(135deg, #000 0%, #500 25%, #800 50%, #300 75%, #000 100%);
+      background-size: 400% 400%;
+      animation: gradient-animation 15s ease infinite;
+      z-index: -2;
+    }
+
+    body::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      backdrop-filter: blur(70px);
+      z-index: -1;
+    }
+
+    @keyframes gradient-animation {
+      0% { background-position: 0% 50% }
+      50% { background-position: 100% 50% }
+      100% { background-position: 0% 50% }
+    }
+
+    .register-container {
+      width: 450px;
+      background-color: rgba(20, 20, 20, 0.7);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      padding: 40px;
+      box-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
+      border: 1px solid rgba(255, 0, 0, 0.2);
+      position: relative;
+      z-index: 10;
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .logo-text {
+      font-size: 32px;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: #aaa;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 15px;
+    }
+
+    .form-col {
+      flex: 1;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      color: #ccc;
+      font-size: 14px;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 12px;
+      background-color: rgba(50, 50, 50, 0.5);
+      border: 1px solid rgba(255, 0, 0, 0.2);
+      border-radius: 6px;
+      color: #fff;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .form-input:focus {
+      border-color: #c00;
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+      outline: none;
+    }
+
+    .form-input::placeholder {
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .password-req {
+      font-size: 12px;
+      color: #888;
+      margin-top: 8px;
+    }
+
+    .password-req-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .req-icon {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: rgba(255, 0, 0, 0.3);
+      font-size: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .terms {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      color: #fff;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .terms input {
+      margin-right: 8px;
+      margin-top: 3px;
+      accent-color: #c00;
+    }
+
+    .terms a {
+      color: #f00;
+      text-decoration: none;
+    }
+
+    .terms a:hover {
+      text-decoration: underline;
+    }
+
+    .register-btn {
+      width: 100%;
+      background-color: #c00;
+      color: #fff;
+      border: none;
+      padding: 14px;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(200, 0, 0, 0.3);
+    }
+
+    .register-btn:hover {
+      background-color: #f00;
+    }
+
+    .register-footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    .register-footer a {
+      color: #c00;
+      text-decoration: none;
+    }
+
+    .register-footer a:hover {
+      text-decoration: underline;
+    }
+
+    .glow-effect {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    #glow1 {
+      top: 20%;
+      left: 30%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(255,0,0,0.2) 0%, rgba(255,0,0,0) 70%);
+      animation: float 20s ease-in-out infinite;
+    }
+
+    #glow2 {
+      bottom: 10%;
+      right: 20%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255,0,0,0.15) 0%, rgba(255,0,0,0) 70%);
+      animation: float 15s ease-in-out infinite reverse;
+    }
+
+    @keyframes float {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(50px, 30px); }
+      100% { transform: translate(0, 0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="glow-effect" id="glow1"></div>
+  <div class="glow-effect" id="glow2"></div>
+
+  <div class="register-container">
+    <div class="logo"><div class="logo-text">WOLFAI</div></div>
+    <div class="subtitle">For: Tecnologico de Merida</div>
+
+    <form method="POST" action="/registro">
+      {% if error %}
+        <p style="color: rgb(255, 100, 100); text-align: center;">{{ error }}</p>
+      {% endif %}
+
+      <div class="form-row">
+        <div class="form-col">
+          <div class="form-group">
+            <label class="form-label">Nombre</label>
+            <input name="nombre" type="text" class="form-input" placeholder="Nombre" required>
+          </div>
+        </div>
+        <div class="form-col">
+          <div class="form-group">
+            <label class="form-label">Apellido</label>
+            <input name="apellido" type="text" class="form-input" placeholder="Apellido" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Correo institucional</label>
+        <input name="correo" type="email" class="form-input" placeholder="correo@itmerida.edu.mx" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Contraseña</label>
+        <input name="password" type="password" class="form-input" placeholder="Contraseña segura" required>
+        <div class="password-req">
+          <div class="password-req-item"><div class="req-icon">✓</div> Mínimo 8 caracteres</div>
+          <div class="password-req-item"><div class="req-icon">✓</div> Al menos un número</div>
+          <div class="password-req-item"><div class="req-icon">✓</div> Un carácter especial</div>
+        </div>
+      </div>
+
+      <div class="terms">
+        <input type="checkbox" required>
+        <label>
+          Acepto los <a href="#">Términos</a> y <a href="#">Política de privacidad</a>. Mis datos serán tratados conforme a estos acuerdos.
+        </label>
+      </div>
+
+      <button type="submit" class="register-btn">Crear cuenta</button>
+
+      <div class="register-footer">
+        ¿Ya tienes cuenta? <a href="/login">Inicia sesión</a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

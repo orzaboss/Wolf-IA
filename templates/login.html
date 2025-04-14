@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WOLFAI - Login</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      color: #fff;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, #000 0%, #500 25%, #800 50%, #300 75%, #000 100%);
+      background-size: 400% 400%;
+      animation: gradient-animation 15s ease infinite;
+      z-index: -2;
+    }
+
+    body::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      backdrop-filter: blur(70px);
+      z-index: -1;
+    }
+
+    @keyframes gradient-animation {
+      0% { background-position: 0% 50% }
+      50% { background-position: 100% 50% }
+      100% { background-position: 0% 50% }
+    }
+
+    .login-container {
+      width: 400px;
+      background-color: rgba(20, 20, 20, 0.7);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      padding: 40px;
+      box-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
+      border: 1px solid rgba(255, 0, 0, 0.2);
+      position: relative;
+      z-index: 10;
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .logo-text {
+      font-size: 32px;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+      letter-spacing: 1px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: #aaa;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      color: #ccc;
+      font-size: 14px;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 12px;
+      background-color: rgba(50, 50, 50, 0.5);
+      border: 1px solid rgba(255, 0, 0, 0.2);
+      border-radius: 6px;
+      color: #fff;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .form-input:focus {
+      border-color: #c00;
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+      outline: none;
+    }
+
+    .form-input::placeholder {
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .remember-me {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    .remember-me input {
+      margin-right: 8px;
+      accent-color: #c00;
+    }
+
+    .login-btn {
+      width: 100%;
+      background-color: #c00;
+      color: #fff;
+      border: none;
+      padding: 14px;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(200, 0, 0, 0.3);
+    }
+
+    .login-btn:hover {
+      background-color: #f00;
+    }
+
+    .login-footer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    .login-footer a {
+      color: #c00;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .login-footer a:hover {
+      color: #f00;
+      text-decoration: underline;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      margin: 30px 0;
+      color: #666;
+    }
+
+    .divider:before,
+    .divider:after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background-color: rgba(255, 0, 0, 0.2);
+    }
+
+    .divider-text {
+      padding: 0 10px;
+      font-size: 12px;
+    }
+
+    .social-login {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .social-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: rgba(50, 50, 50, 0.5);
+      border: 1px solid rgba(255, 0, 0, 0.2);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .social-btn:hover {
+      background-color: rgba(255, 0, 0, 0.2);
+      transform: translateY(-3px);
+    }
+
+    .social-icon {
+      width: 24px;
+      height: 24px;
+      stroke: #fff;
+      fill: none;
+    }
+
+    .glow-effect {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    #glow1 {
+      top: 20%;
+      left: 30%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(255,0,0,0.2) 0%, rgba(255,0,0,0) 70%);
+      animation: float 20s ease-in-out infinite;
+    }
+
+    #glow2 {
+      bottom: 10%;
+      right: 20%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255,0,0,0.15) 0%, rgba(255,0,0,0) 70%);
+      animation: float 15s ease-in-out infinite reverse;
+    }
+
+    @keyframes float {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(50px, 30px); }
+      100% { transform: translate(0, 0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="glow-effect" id="glow1"></div>
+  <div class="glow-effect" id="glow2"></div>
+
+  <div class="login-container">
+    <div class="logo"><div class="logo-text">WOLFAI</div></div>
+    <div class="subtitle">For: Tecnologico de Merida</div>
+
+    <form method="POST" action="/login">
+      {% if error %}
+        <p style="color: rgb(255, 120, 120); text-align:center; margin-bottom:15px;">{{ error }}</p>
+      {% endif %}
+
+      <div class="form-group">
+        <label class="form-label">Correo institucional</label>
+        <input type="email" name="correo" class="form-input" placeholder="ejemplo@itmerida.edu.mx" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Contraseña</label>
+        <input type="password" name="password" class="form-input" placeholder="Tu contraseña" required>
+      </div>
+
+      <div class="remember-me">
+        <input type="checkbox" id="remember">
+        <label for="remember">Recordarme</label>
+      </div>
+
+      <button type="submit" class="login-btn">Iniciar sesión</button>
+
+      <div class="login-footer">
+        <a href="#">¿Olvidaste tu contraseña?</a>
+        <a href="/registro">¿No te has registrado?</a>
+      </div>
+
+      <div class="divider">
+        <span class="divider-text">O CONTINUA CON</span>
+      </div>
+
+      <div class="social-login">
+        <div class="social-btn">
+          <svg class="social-icon" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </div>
+        <div class="social-btn">
+          <svg class="social-icon" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 12 8v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+        </div>
+        <div class="social-btn">
+          <svg class="social-icon" viewBox="0 0 24 24"><path d="M12 0c-6.6 0-12 5.4-12 12 0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2.9-.3 2-.4 3-.4s2.1.1 3 .4c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.8-1.6 8.2-6.1 8.2-11.4 0-6.6-5.4-12-12-12z"/></svg>
+        </div>
+        <div class="social-btn">
+          <svg class="social-icon" viewBox="0 0 24 24"><path d="M12.545,10.239v3.821h5.445c-0.712,2.315-2.647,3.972-5.445,3.972c-3.332,0-6.033-2.701-6.033-6.032s2.701-6.032,6.033-6.032c1.498,0,2.866,0.549,3.921,1.453l2.814-2.814C17.503,2.988,15.139,2,12.545,2C7.021,2,2.543,6.477,2.543,12s4.478,10,10.002,10c8.396,0,10.249-7.85,9.426-11.748L12.545,10.239z"/></svg>
+        </div>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
