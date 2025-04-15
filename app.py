@@ -6,7 +6,7 @@ import requests
 app = Flask(__name__)
 app.secret_key = "clave_super_secreta"
 
-API_KEY = "AIzaSyBKTAnIJfC5pyUOSOeTYg3RBpzF_gj5UyM"
+API_KEY = "apikey"
 API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent"
 
 contexto_wolfai = """
