@@ -1,158 +1,156 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WolfAI - Asistente Académico | TecNM Campus Mérida</title>
-    <link rel="stylesheet" href="/static/home.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WOLFAI - Student Project</title>
+  <link rel="stylesheet" href="/static/home.css">
 </head>
 <body>
-    <!-- Background animation -->
-    <div class="background-animation" id="backgroundAnimation"></div>
-    
-    <div class="container">
-        <header>
-            <div class="logo-container">
-                <img src="/api/placeholder/50/50" alt="WolfAI Logo" class="header-logo">
-                <div class="logo-text">WOLFAI</div>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#funciones">¿Qué hace?</a></li>
-                    <li><a href="#importante">Importante</a></li>
-                </ul>
-            </nav>
-        </header>
-        
-        <section class="hero" id="inicio">
-            <div class="hero-content">
-                <h1>Tu nuevo aliado académico</h1>
-                <p>Diseñado y desarrollado por estudiantes del <strong>TecNM Campus Mérida</strong>, WolfAI es un asistente inteligente creado para ayudarte a resolver tus dudas académicas, administrativas y relacionadas con tu vida estudiantil de forma rápida, clara y accesible.</p>
-                <div class="cta-buttons">
-                    <a href="#" class="btn btn-primary">Comenzar ahora</a>
-                    <a href="#" class="btn btn-secondary" id="aspirant-btn">Soy aspirante</a>
-                </div>
-            </div>
-        </section>
-        
-        <section class="features" id="funciones">
-            <div class="section-title">
-                <h2>¿Qué hace WolfAI?</h2>
-                <p>WolfAI es mucho más que un asistente académico. Es una herramienta creada por estudiantes para estudiantes.</p>
-            </div>
-            
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M6.012 18H21V4a2 2 0 0 0-2-2H6c-1.206 0-3 .799-3 3v14c0 2.201 1.794 3 3 3h15v-2H6.012C5.55 19.988 5 19.805 5 19s.55-.988 1.012-1zM8 6h9v2H8V6zm0 4h9v2H8v-2zm0 4h8v2H8v-2z"/>
-                        </svg>
-                    </div>
-                    <h3>Conexión con la Coordinación Académica</h3>
-                    <p>WolfAI ha sido entrenado con información proporcionada por la <strong>Coordinación Académica del TecNM Mérida</strong>.</p>
-                    <ul>
-                        <li>Fechas de inscripción o reinscripción</li>
-                        <li>Procedimientos para constancias y trámites</li>
-                        <li>Documentación requerida</li>
-                        <li>Guía para plataformas como <strong>SIE</strong></li>
-                    </ul>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3zm9 11v-1a7 7 0 0 0-7-7h-4a7 7 0 0 0-7 7v1h2v-1a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v1z"/>
-                        </svg>
-                    </div>
-                    <h3>Recomendación de Profesores</h3>
-                    <p>WolfAI también puede sugerirte al <strong>profesor o profesora más adecuado/a</strong> para apoyarte en:</p>
-                    <ul>
-                        <li>Elección de tema de tesis</li>
-                        <li>Dirección de proyectos académicos</li>
-                        <li>Dudas específicas de materias</li>
-                        <li>Recomendaciones basadas en perfiles reales</li>
-                    </ul>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M13 2.05v3.03c3.39.49 6 3.39 6 6.92 0 .9-.18 1.75-.48 2.54l2.6 1.53c.56-1.24.88-2.62.88-4.07 0-5.18-3.95-9.45-9-9.95zM12 19c-3.87 0-7-3.13-7-7 0-3.53 2.61-6.43 6-6.92V2.05c-5.06.5-9 4.76-9 9.95 0 5.52 4.47 10 9.99 10 3.31 0 6.24-1.61 8.06-4.09l-2.6-1.53C16.17 17.98 14.21 19 12 19z"/>
-                        </svg>
-                    </div>
-                    <h3>Información para Aspirantes</h3>
-                    <p>Si estás por ingresar al TecNM Mérida, WolfAI también está aquí para ti.</p>
-                    <ul>
-                        <li>Proceso de <strong>convocatoria de nuevo ingreso</strong></li>
-                        <li>Documentos necesarios</li>
-                        <li>Registro en línea</li>
-                        <li>Funcionamiento de la plataforma <strong>SIE</strong></li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-        
-        <section class="about" id="importante">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Importante</h2>
-                    <p>Este es un <strong>proyecto estudiantil en constante evolución</strong>. Aunque WolfAI ha sido entrenado con datos reales, algunas respuestas podrían estar basadas en información que no ha sido actualizada recientemente.</p>
-                    <p>Siempre que sea posible, WolfAI te indicará la <strong>fecha de referencia</strong> de los datos que usa. Se recomienda <strong>verificar los datos sensibles directamente con la Coordinación Académica</strong>.</p>
-                    <p>¿Por qué usar WolfAI?</p>
-                    <ul>
-                        <li>Respuestas inmediatas 24/7</li>
-                        <li>Asistencia útil para alumnos y aspirantes</li>
-                        <li>Recomendaciones de profesores reales</li>
-                        <li>Disponible desde cualquier dispositivo</li>
-                        <li>Proyecto hecho por y para estudiantes</li>
-                    </ul>
-                </div>
-                <div class="about-image">
-                    <img src="/api/placeholder/600/400" alt="Estudiantes del TecNM Campus Mérida">
+  <!-- Glows -->
+  <div class="glow-effect" id="glow1"></div>
+  <div class="glow-effect" id="glow2"></div>
 
-<div class="about-image">
-    <img src="merida.png" alt="Estudiantes del TecNM Campus Mérida">
-</div>
-</div>
-</section>
-</div>
-
-<footer>
-<div class="container">
-<div class="footer-content">
-<div class="footer-logo">
-    <div class="footer-logo-container">
-        <img src="7EC67855-56FA-4996-B16E-774362B3EF8B.png" alt="WolfAI Logo" class="header-logo">
-        <div class="logo-text">WOLFAI</div>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="logo">STUDENT PROJECT</div>
+    <div class="chat-history">
+      <h3 class="history-title">Chat History</h3>
     </div>
-    <p>Asistente académico inteligente desarrollado por estudiantes del TecNM Campus Mérida.</p>
-    <img src="merida.png" alt="TecNM Campus Mérida Logo" class="university-logo">
-</div>
-<div class="footer-links">
-    <h3>Enlaces rápidos</h3>
-    <ul>
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#funciones">¿Qué hace?</a></li>
-        <li><a href="#acerca">Acerca de</a></li>
-        <li><a href="#">Términos y Condiciones</a></li>
-    </ul>
-</div>
-<div class="footer-links">
-    <h3>Recursos</h3>
-    <ul>
-        <li><a href="https://www.merida.tecnm.mx/" target="_blank">TecNM Campus Mérida</a></li>
-        <li><a href="#">Sistema SIE</a></li>
-        <li><a href="#">Correo institucional</a></li>
-        <li><a href="#">Contacto</a></li>
-    </ul>
-</div>
-</div>
-<div class="copyright">
-&copy; 2025 WolfAI - Proyecto estudiantil del TecNM Campus Mérida. Todos los derechos reservados.
-</div>
-</div>
-</footer>
+    <div class="aspirante-btn"><div class="aspirante-text">Aspirante</div></div>
+    <div class="signin-btn">Sign in</div>
+  </div>
 
+  <!-- Main Chat -->
+  <div class="main-content">
+    <div class="chat-area">
+      <div class="profile-header">
+        <div class="profile-info">
+          <div class="profile-name">WOLFAI</div>
+          <div class="profile-author">For: Tecnologico de Merida</div>
+        </div>
+      </div>
+
+      <div class="chat-container">
+        <div class="message">
+          <div class="message-avatar">W</div>
+          <div class="message-content">
+            ¡Hola! Soy <strong>WolfAI</strong>, tu guía virtual para ayudarte a encontrar mentores de tesis y tomar decisiones académicas informadas. ¿En qué puedo ayudarte hoy?
+          </div>
+        </div>
+      </div>
+
+      <!-- Input -->
+      <div class="chat-input-container">
+        <div class="input-tools">
+          <div class="icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+            </svg>
+          </div>
+          <div class="icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="16" x2="12" y2="12" />
+              <line x1="12" y1="8" x2="12" y2="8" />
+            </svg>
+          </div>
+        </div>
+        <input type="text" class="chat-input" placeholder="Escribe tu mensaje...">
+        <div class="input-tools">
+          <div class="icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <circle cx="8.5" cy="8.5" r="1.5" />
+              <path d="M21 15l-5-5L5 21" />
+            </svg>
+          </div>
+          <div class="icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 2L11 13" />
+              <path d="M22 2l-7 20-4-9-9-4 20-7z" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal emergente (oculto por defecto) -->
+  <div class="modal-overlay" id="modalLimit">
+    <div class="modal-container">
+      <div class="logo">
+        <div class="logo-text">WOLFAI</div>
+      </div>
+      <div class="alert-icon"></div>
+      <div class="modal-message">¡Has accedido al límite de mensajes sin iniciar sesión!</div>
+      <div class="modal-buttons">
+        <button class="modal-btn login-btn" onclick="window.location.href='/login'">Login</button>
+        <button class="modal-btn aspirant-btn" onclick="window.location.href='/register'">Soy aspirante</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script>
+    const chatInput = document.querySelector('.chat-input');
+    const chatContainer = document.querySelector('.chat-container');
+    const signinBtn = document.querySelector('.signin-btn');
+    const modal = document.getElementById('modalLimit');
+    const nombreUsuario = "{{ nombre if nombre else '' }}";
+
+    if (nombreUsuario) {
+      signinBtn.innerText = nombreUsuario;
+      signinBtn.addEventListener('click', () => window.location.href = "/logout");
+    } else {
+      signinBtn.addEventListener('click', () => window.location.href = "/login");
+    }
+
+    function formatResponse(text) {
+      return text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                 .split(/\n{2,}/).map(p => `<p>${p.replace(/\n/g, "<br>")}</p>`).join('');
+    }
+
+    async function sendMessage() {
+      const message = chatInput.value.trim();
+      if (!message) return;
+
+      const userBubble = `
+        <div class="message user-message" style="justify-content: flex-end;">
+          <div class="message-content">${message}</div>
+        </div>`;
+      chatContainer.insertAdjacentHTML('beforeend', userBubble);
+      chatInput.value = "";
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+
+      const response = await fetch('/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message })
+      });
+
+      const data = await response.json();
+
+      if (data.bloqueado) {
+        modal.style.display = 'flex';
+        return;
+      }
+
+      const botBubble = `
+        <div class="message">
+          <div class="message-avatar">W</div>
+          <div class="message-content">${formatResponse(data.response)}</div>
+        </div>`;
+      chatContainer.insertAdjacentHTML('beforeend', botBubble);
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
+
+    chatInput.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        sendMessage();
+      }
+    });
+  </script>
 </body>
 </html>
