@@ -293,7 +293,7 @@
             transform: scale(1.1);
         }
         
-        /* Collaborators Section */
+        /* Collaborators Section - NUEVA VERSIÓN */
         .collaborators {
             background-color: var(--white);
             padding: 40px 0;
@@ -310,18 +310,24 @@
             margin-bottom: 30px;
         }
         
+        .collaborators h3 {
+            font-size: 24px;
+            color: var(--gray);
+            margin: 25px 0 15px;
+        }
+        
         .logos-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-wrap: wrap;
             gap: 40px;
+            flex-wrap: wrap;
         }
         
         .logo-item {
             flex: 0 0 200px;
             text-align: center;
-            margin-bottom: 20px; /* Espacio entre logos cuando envuelven */
+            margin-bottom: 20px;
         }
         
         .logo-item img {
@@ -333,6 +339,45 @@
         .logo-item p {
             font-weight: bold;
             color: var(--royal-blue);
+        }
+        
+        /* Carousel de Colaboradores - NUEVO */
+        .carousel-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+        
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            gap: 20px;
+        }
+        
+        .carousel-slide {
+            flex: 0 0 200px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .carousel-slide:hover {
+            transform: translateY(-15px);
+        }
+        
+        .carousel-slide img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .carousel-slide p {
+            color: var(--royal-blue);
+            font-weight: bold;
         }
         
         /* Animation Styles */
@@ -377,6 +422,10 @@
             .feature-card {
                 flex: 0 0 48%;
             }
+            
+            .carousel-slide {
+                flex: 0 0 180px;
+            }
         }
         
         @media (max-width: 768px) {
@@ -410,6 +459,10 @@
                 width: 100%;
                 margin-bottom: 10px;
                 text-align: center;
+            }
+            
+            .carousel-slide {
+                flex: 0 0 150px;
             }
         }
     </style>
@@ -541,28 +594,74 @@
                 <h2>Desarrollado por</h2>
                 <div class="logos-container">
                     <div class="logo-item">
-                        <img src="logotec.png" alt="Logo TecNM Campus Mérida" />
-                        <p>TecNM Campus Mérida</p>
-                    </div>
-                    <div class="logo-item">
-                        <img src="nosotros.png" alt="Logo WolfAI" />
-                        <p>WolfAI</p>
+                        <img src="nosotros.png" alt="UINIK.AI" />
+                        <p>UINIK.AI</p>
                     </div>
                 </div>
                 
-                <h2 style="margin-top: 40px;">Colaboradores</h2>
+                <h3>En asociación con</h3>
                 <div class="logos-container">
                     <div class="logo-item">
-                        <img src="/api/placeholder/120/120" alt="Colaborador" style="border-radius: 50%;" />
-                        <p>Nombre Colaborador</p>
+                        <img src="logotec.png" alt="TecNM Campus Mérida" />
+                        <p>TecNM Campus Mérida</p>
                     </div>
-                    <div class="logo-item">
-                        <img src="/api/placeholder/120/120" alt="Colaborador" style="border-radius: 50%;" />
-                        <p>Nombre Colaborador</p>
-                    </div>
-                    <div class="logo-item">
-                        <img src="/api/placeholder/120/120" alt="Colaborador" style="border-radius: 50%;" />
-                        <p>Nombre Colaborador</p>
+                </div>
+                
+                <h2 style="margin-top: 40px;">Nuestros Colaboradores</h2>
+                
+                <!-- Carrusel de colaboradores -->
+                <div class="carousel-container">
+                    <div class="carousel-track">
+                        <!-- 9 colaboradores en total -->
+                        <div class="carousel-slide">
+                            <img src="/api/placeholder/120/120" alt="Colaborador 1" />
+                            <p>Orlando Chan</p>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="armandofoto.jpg" alt="Colaborador 2" />
+                            <p>Armando Lara</p>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="/api/placeholder/120/120" alt="Colaborador 3" />
+                            <p>Abigail Cetina</p>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="/api/placeholder/120/120" alt="Colaborador 4" />
+                            <p>Natalia Rubio</p>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="/api/placeholder/120/120" alt="Colaborador 5" />
+                            <p>Leonardo Osorio</p>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="/api/placeholder/120/120" alt="Colaborador 6" />
+                            <p>Mitchael Castillo</p>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="/api/placeholder/120/120" alt="Colaborador 7" />
+                            <p>Nahil Canche</p>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="/api/placeholder/120/120" alt="Colaborador 8" />
+                            <p>Hector </p>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="/api/placeholder/120/120" alt="Colaborador 9" />
+                            <p>Alguien mas</p>
+                        </div>
+                        <!-- Clones para efecto infinito -->
+                        <div class="carousel-slide clone">
+                            <img src="" alt="Colaborador 1" />
+                            <p>Orlando Chan</p>
+                        </div>
+                        <div class="carousel-slide clone">
+                            <img src="armando.jpg" alt="Colaborador 2" />
+                            <p>Armando Lara</p>
+                        </div>
+                        <div class="carousel-slide clone">
+                            <img src="/api/placeholder/120/120" alt="Colaborador 3" />
+                            <p>Abigail Cetina</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -621,6 +720,39 @@
                 element.style.transform = 'translateY(20px)';
                 element.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
                 observer.observe(element);
+            });
+            
+            // Carrusel automático para colaboradores
+            const track = document.querySelector('.carousel-track');
+            const slides = document.querySelectorAll('.carousel-slide:not(.clone)');
+            const slideWidth = 220; // Ancho del slide + gap
+            let position = 0;
+            
+            // Duplicar primeros elementos para efecto infinito
+            function moveCarousel() {
+                position -= 1; // Mover 1px por frame para un movimiento suave
+                
+                // Si hemos desplazado un slide completo, resetear
+                if (position <= -slideWidth * slides.length) {
+                    position = 0;
+                }
+                
+                track.style.transform = `translateX(${position}px)`;
+                requestAnimationFrame(moveCarousel);
+            }
+            
+            // Comenzar la animación
+            requestAnimationFrame(moveCarousel);
+            
+            // Pausar animación cuando el cursor está sobre el carrusel
+            const carouselContainer = document.querySelector('.carousel-container');
+            
+            carouselContainer.addEventListener('mouseenter', () => {
+                track.style.animationPlayState = 'paused';
+            });
+            
+            carouselContainer.addEventListener('mouseleave', () => {
+                track.style.animationPlayState = 'running';
             });
         });
     </script>
