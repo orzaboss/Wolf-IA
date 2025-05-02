@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WolfAI - Asistente académico inteligente</title>
+    <style>
+        :root {
+            --royal-blue: #0a3470;
+            --light-blue: #e9f0f8;
+            --medium-blue: #4f78b0;
+            --gray: #707070;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        
+        body {
+            background-color: var(--light-blue);
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevenir scroll horizontal */
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%; /* Asegurar ancho completo */
+            box-sizing: border-box;
+            overflow: hidden; /* Prevenir desbordamiento */
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            padding: 15px 0;
+            border-bottom: 2px solid var(--royal-blue);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            width: 100%;
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: center; /* Centrado del logo */
+            align-items: center;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--royal-blue);
+        }
+        
+        .logo h1 {
+            font-size: 50px;
+            font-weight: bold;
+            color: var(--royal-blue);
+            letter-spacing: 1px;
+        }
+        
+        /* Hero Section - CORREGIDO */
+        .hero {
+            background-color: var(--white);
+            padding: 40px 20px;
+            margin: 20px 0;
+            border-top: 1px solid var(--royal-blue);
+            border-bottom: 1px solid var(--royal-blue);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* Permitir envolvimiento en pantallas pequeñas */
+            width: 100%;
+            box-sizing: border-box;
+            overflow: hidden; /* Prevenir desbordamiento */
+        }
+        
+        .hero-content {
+            flex: 0 0 55%;
+            max-width: 55%; /* Reducido para dar más espacio */
+            padding-right: 20px; /* Espacio entre contenido e imagen */
+            box-sizing: border-box;
+        }
+        
+        .hero-image {
+            flex: 0 0 35%;
+            max-width: 35%; /* Limitar ancho */
+            text-align: center;
+            box-sizing: border-box;
+        }
+        
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .hero h2 {
+            font-size: 42px; /* Reducido de 48px */
+            color: #000;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            /* Evitar desbordamiento de texto */
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            max-width: 100%;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--royal-blue);
+            color: var(--white);
+            padding: 12px 25px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-bottom: 10px; /* Espacio entre botones si envuelven */
+            margin-right: 10px; /* Espacio entre botones */
+        }
+        
+        .btn:hover {
+            background-color: var(--medium-blue);
+        }
+        
+        /* Features Section */
+        .features {
+            display: flex;
+            justify-content: space-between;
+            margin: 40px 0;
+            flex-wrap: wrap; /* Permitir envolvimiento en pantallas pequeñas */
+        }
+        
+        .feature-card {
+            flex: 0 0 31%;
+            background-color: var(--white);
+            padding: 25px;
+            border-top: 1px solid var(--royal-blue);
+            border-bottom: 1px solid var(--royal-blue);
+            transition: transform 0.3s;
+            margin-bottom: 20px; /* Espacio entre tarjetas cuando envuelven */
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-card h3 {
+            font-size: 26px;
+            color: #000;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--medium-blue);
+            padding-bottom: 10px;
+        }
+        
+        .feature-card p {
+            font-size: 16px;
+            color: var(--gray);
+        }
+        
+        /* Additional Content Styles */
+        .content-section {
+            background-color: var(--white);
+            padding: 40px;
+            margin: 30px 0;
+            border-top: 1px solid var(--royal-blue);
+            border-bottom: 1px solid var(--royal-blue);
+            width: 100%;
+        }
+        
+        .content-section h2 {
+            font-size: 32px;
+            color: var(--royal-blue);
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--medium-blue);
+            padding-bottom: 10px;
+        }
+        
+        .content-section h3 {
+            font-size: 24px;
+            color: #000;
+            margin: 20px 0 10px;
+        }
+        
+        .content-section p {
+            margin-bottom: 15px;
+        }
+        
+        .content-section ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .content-section li {
+            margin-bottom: 8px;
+        }
+        
+        .important-note {
+            background-color: var(--light-blue);
+            padding: 15px;
+            border-left: 4px solid var(--royal-blue);
+            margin: 20px 0;
+        }
+        
+        .important-note h4 {
+            color: var(--royal-blue);
+            margin-bottom: 10px;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: var(--royal-blue);
+            color: var(--white);
+            padding: 30px 0;
+            margin-top: 40px;
+            width: 100%;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap; /* Permitir envolvimiento en pantallas pequeñas */
+        }
+        
+        .footer-column {
+            flex: 0 0 30%;
+            margin-bottom: 20px; /* Espacio entre columnas cuando envuelven */
+        }
+        
+        .footer-column h3 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--white);
+            padding-bottom: 10px;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--light-blue);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            width: 100%;
+        }
+        
+        /* Section with Icon Styles */
+        .section-with-icon {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            flex-wrap: wrap; /* Permitir envolvimiento en pantallas pequeñas */
+        }
+        
+        .section-icon {
+            flex: 0 0 80px;
+            transition: transform 0.3s ease;
+        }
+        
+        .section-icon svg {
+            width: 100%;
+            height: auto;
+        }
+        
+        .section-content {
+            flex: 1;
+        }
+        
+        .section-with-icon:hover .section-icon {
+            transform: scale(1.1);
+        }
+        
+        /* Collaborators Section */
+        .collaborators {
+            background-color: var(--white);
+            padding: 40px 0;
+            margin: 20px 0;
+            border-top: 1px solid var(--royal-blue);
+            border-bottom: 1px solid var(--royal-blue);
+            text-align: center;
+            width: 100%;
+        }
+        
+        .collaborators h2 {
+            font-size: 32px;
+            color: var(--royal-blue);
+            margin-bottom: 30px;
+        }
+        
+        .logos-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .logo-item {
+            flex: 0 0 200px;
+            text-align: center;
+            margin-bottom: 20px; /* Espacio entre logos cuando envuelven */
+        }
+        
+        .logo-item img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        
+        .logo-item p {
+            font-weight: bold;
+            color: var(--royal-blue);
+        }
+        
+        /* Animation Styles */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animated {
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+        
+        /* Media Queries - MEJORADO */
+        @media (max-width: 992px) {
+            .hero-content, .hero-image {
+                flex: 0 0 100%;
+                max-width: 100%;
+                padding-right: 0;
+            }
+            
+            .hero h2 {
+                font-size: 36px; /* Aún más pequeño en tablets */
+                max-width: 100%;
+            }
+            
+            .hero-image {
+                margin-top: 30px;
+            }
+            
+            .feature-card {
+                flex: 0 0 48%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero {
+                flex-direction: column;
+            }
+            
+            .feature-card {
+                flex: 0 0 100%;
+            }
+            
+            .footer-column {
+                flex: 0 0 100%;
+            }
+            
+            .section-with-icon {
+                flex-direction: column;
+            }
+            
+            .section-icon {
+                margin-bottom: 15px;
+            }
+            
+            .btn {
+                display: block;
+                width: 100%;
+                margin-bottom: 10px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <h1>WOLFIA</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero animated">
+            <div class="hero-content">
+                <h2><strong>Tu nuevo aliado académico</strong></h2>
+                <p>Diseñado y desarrollado por estudiantes del <strong>TecNM Campus Mérida</strong>, WolfAI es un asistente inteligente creado para ayudarte a resolver tus dudas académicas, administrativas y relacionadas con tu vida estudiantil.</p>
+                <div>
+                    <a href="#" class="btn">COMENZAR AHORA</a>
+                    <a href="#aspirante" class="btn" style="background-color: var(--medium-blue);">SOY ASPIRANTE</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="logo.png" alt="Logo WolfAI" />
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="feature-card animated delay-1">
+                <h3>¿Qué hace WolfAI?</h3>
+                <p>WolfAI es mucho más que un asistente académico. Es una herramienta creada por estudiantes para estudiantes, diseñada para facilitar tu vida universitaria en el TecNM Campus Mérida.</p>
+            </div>
+            <div class="feature-card animated delay-2">
+                <h3>Información para Aspirantes</h3>
+                <p>Si estás por ingresar al TecNM Mérida, WolfAI también está aquí para ti con información sobre el proceso de admisión, documentos necesarios y más.</p>
+            </div>
+            <div class="feature-card animated delay-3">
+                <h3>¿Por qué usar WolfAI?</h3>
+                <p>Respuestas inmediatas 24/7, asistencia útil para alumnos y aspirantes, y recomendaciones de profesores reales. Disponible desde cualquier dispositivo.</p>
+            </div>
+        </section>
+
+        <section class="content-section animated">
+            <div class="section-with-icon">
+                <div class="section-icon">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <g fill="#0a3470">
+                            <path d="M50,10 C28,10 10,28 10,50 C10,72 28,90 50,90 C72,90 90,72 90,50 C90,28 72,10 50,10 Z M50,85 C30.5,85 15,69.5 15,50 C15,30.5 30.5,15 50,15 C69.5,15 85,30.5 85,50 C85,69.5 69.5,85 50,85 Z" />
+                            <path d="M50,25 L50,50 L68,62 L65,67 L42,52 L42,25 Z" />
+                        </g>
+                    </svg>
+                </div>
+                <div class="section-content">
+                    <h2>Conexión con la Coordinación Académica</h2>
+                    <p>WolfAI ha sido entrenado con información proporcionada por la <strong>Coordinación Académica del TecNM Mérida</strong>.</p>
+                    <ul>
+                        <li>Fechas de inscripción o reinscripción</li>
+                        <li>Procedimientos para constancias y trámites</li>
+                        <li>Documentación requerida</li>
+                        <li>Guía para plataformas como SIE</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section animated">
+            <div class="section-with-icon">
+                <div class="section-icon">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <g fill="#0a3470">
+                            <circle cx="50" cy="30" r="20" />
+                            <path d="M80,90 L80,75 C80,58 65,50 50,50 C35,50 20,58 20,75 L20,90 Z" />
+                            <circle cx="20" cy="25" r="5" />
+                            <circle cx="80" cy="25" r="5" />
+                            <path d="M15,40 L25,35" />
+                            <path d="M85,40 L75,35" />
+                        </g>
+                    </svg>
+                </div>
+                <div class="section-content">
+                    <h2>Recomendación de Profesores</h2>
+                    <p>WolfAI también puede sugerirte al <strong>profesor o profesora más adecuado/a</strong> para apoyarte en:</p>
+                    <ul>
+                        <li>Elección de tema de tesis</li>
+                        <li>Dirección de proyectos académicos</li>
+                        <li>Dudas específicas de materias</li>
+                        <li>Recomendaciones basadas en perfiles reales</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="aspirante" class="content-section animated">
+            <div class="section-with-icon">
+                <div class="section-icon">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <g fill="#0a3470">
+                            <path d="M50,20 L85,40 L50,60 L15,40 Z" />
+                            <path d="M35,48 L35,75 L65,75 L65,48" />
+                            <rect x="42" y="60" width="16" height="15" />
+                            <path d="M85,40 L85,65 L80,67 L80,45 Z" />
+                        </g>
+                    </svg>
+                </div>
+                <div class="section-content">
+                    <h2>Información para Aspirantes</h2>
+                    <p>Si estás por ingresar al TecNM Mérida, WolfAI también está aquí para ti.</p>
+                    <ul>
+                        <li>Proceso de convocatoria de nuevo ingreso</li>
+                        <li>Documentos necesarios</li>
+                        <li>Registro en línea</li>
+                        <li>Funcionamiento de la plataforma SIE</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="important-note">
+                <h4>Importante</h4>
+                <p>Este es un <strong>proyecto estudiantil en constante evolución</strong>. Aunque WolfAI ha sido entrenado con datos reales, algunas respuestas podrían estar basadas en información que no ha sido actualizada recientemente.</p>
+                <p>Siempre que sea posible, WolfAI te indicará la <strong>fecha de referencia</strong> de los datos que usa. Se recomienda <strong>verificar los datos sensibles directamente con la Coordinación Académica</strong>.</p>
+            </div>
+        </section>
+        
+        <section class="collaborators animated">
+            <div class="container">
+                <h2>Desarrollado por</h2>
+                <div class="logos-container">
+                    <div class="logo-item">
+                        <img src="logotec.png" alt="Logo TecNM Campus Mérida" />
+                        <p>TecNM Campus Mérida</p>
+                    </div>
+                    <div class="logo-item">
+                        <img src="nosotros.png" alt="Logo WolfAI" />
+                        <p>WolfAI</p>
+                    </div>
+                </div>
+                
+                <h2 style="margin-top: 40px;">Colaboradores</h2>
+                <div class="logos-container">
+                    <div class="logo-item">
+                        <img src="/api/placeholder/120/120" alt="Colaborador" style="border-radius: 50%;" />
+                        <p>Nombre Colaborador</p>
+                    </div>
+                    <div class="logo-item">
+                        <img src="/api/placeholder/120/120" alt="Colaborador" style="border-radius: 50%;" />
+                        <p>Nombre Colaborador</p>
+                    </div>
+                    <div class="logo-item">
+                        <img src="/api/placeholder/120/120" alt="Colaborador" style="border-radius: 50%;" />
+                        <p>Nombre Colaborador</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>WOLFAI</h3>
+                    <p>Asistente académico inteligente desarrollado por estudiantes del TecNM Campus Mérida.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Enlaces rápidos</h3>
+                    <ul>
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">¿Qué hace?</a></li>
+                        <li><a href="#">Acerca de</a></li>
+                        <li><a href="#">Términos y Condiciones</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Recursos</h3>
+                    <ul>
+                        <li><a href="#">TecNM Campus Mérida</a></li>
+                        <li><a href="#">Sistema SIE</a></li>
+                        <li><a href="#">Correo institucional</a></li>
+                        <li><a href="#">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>STUDENT PROJECT</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Simple animation to enhance user experience
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add scroll animation
+            const animatedElements = document.querySelectorAll('.animated');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animatedElements.forEach(element => {
+                element.style.opacity = 0;
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
