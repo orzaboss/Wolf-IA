@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión - WolfAI</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo">
+            <h1>WOLFIA</h1>
+        </div>
+        <h2>Iniciar sesión</h2>
+        <form action="/login" method="POST">
+            <label for="email">Correo institucional</label>
+            <input type="email" id="email" name="email" required placeholder="matrícula@merida.tecnm.mx">
+
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit" class="btn">Entrar</button>
+        </form>
+        <div class="register-link">
+            <p>¿No tienes una cuenta? <a href="/register">Regístrate aquí</a></p>
+        </div>
+    </div>
+</body>
+</html>
