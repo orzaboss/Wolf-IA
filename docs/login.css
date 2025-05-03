@@ -94,3 +94,17 @@ input[type="password"] {
 .register-link a:hover {
     text-decoration: underline;
 }
+
+.contraseña-link {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.contraseña-link a {
+    color: var(--royal-blue);
+    text-decoration: none;
+}
+
+.contraseña-link a:hover {
+    text-decoration: underline;
+}
