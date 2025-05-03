@@ -81,6 +81,24 @@ input[type="password"] {
     background-color: var(--medium-blue);
 }
 
+.btn-outline {
+    display: inline-flex;
+    align-items: center;
+    border: 2px solid var(--royal-blue);
+    background-color: transparent;
+    color: var(--royal-blue);
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-outline:hover {
+    background-color: var(--royal-blue);
+    color: white;
+}
+
 .register-link {
     margin-top: 15px;
     text-align: center;
