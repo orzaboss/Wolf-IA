@@ -64,6 +64,38 @@ input[type="password"] {
     font-size: 16px;
 }
 
+.name-row {
+    display: flex;
+    gap: 10px;
+}
+
+.name-field {
+    flex: 1;
+}
+
+.terminos-cont {
+    margin-top: 15px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.terminos-cont input[type="checkbox"] {
+    margin-top: 18.3px;
+    margin-left: 10px;
+}
+
+.terminos-cont a {
+    color: var(--royal-blue);
+    text-decoration: none;
+}
+
+.terminos-cont a:hover {
+    text-decoration: underline;
+}
+
 .register-btn {
     display: block;
     width: 100%;
