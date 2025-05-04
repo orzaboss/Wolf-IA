@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recuperar contraseña - WolfIA</title>
+  <link rel="stylesheet" href="forgotpsw.css">
+</head>
+<body>
+  <div class="cont-recuperar">
+    <div class="logo-recuperar">
+      <h1>WOLFIA</h1>
+    </div>
+    <h2>Recuperar contraseña</h2>
+    <p>Ingresa tu correo institucional y te enviaremos instrucciones para restablecer tu contraseña.</p>
+    <form action="/recuperar" method="POST">
+      <label for="correo">Correo institucional</label>
+      <input type="email" id="correo" name="correo" required placeholder="matrícula@merida.tecnm.mx">
+      <button type="submit" class="btn-recuperar">Enviar instrucciones</button>
+    </form>
+    <div class="volver-login">
+      <p><a href="login.html">Volver al inicio de sesión</a></p>
+    </div>
+  </div>
+</body>
+</html>
