@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WolfAI - Chatbot Académico Inteligente</title>
+    <title>WolfAI - Chatbot para Aspirantes</title>
     <style>
         :root {
-            --royal-blue: #0a3470;
-            --light-blue: #e9f0f8;
-            --medium-blue: #4f78b0;
-            --gray: #707070;
-            --white: #ffffff;
-            --light-gray: #f5f5f5;
             --dark-gray: #333333;
+            --medium-gray: #666666;
+            --light-gray: #f5f5f5;
+            --gray: #888888;
+            --white: #ffffff;
+            --lighter-gray: #eeeeee;
         }
         
         * {
@@ -23,7 +22,7 @@
         }
         
         body {
-            background-color: var(--light-blue);
+            background-color: var(--lighter-gray);
             line-height: 1.6;
             overflow-x: hidden;
             height: 100vh;
@@ -44,7 +43,7 @@
         header {
             background-color: var(--white);
             padding: 15px 0;
-            border-bottom: 2px solid var(--royal-blue);
+            border-bottom: 2px solid var(--dark-gray);
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             width: 100%;
         }
@@ -59,7 +58,7 @@
         .logo h1 {
             font-size: 40px;
             font-weight: bold;
-            color: var(--royal-blue);
+            color: var(--dark-gray);
             letter-spacing: 1px;
         }
         
@@ -70,7 +69,7 @@
         
         .btn {
             display: inline-block;
-            background-color: var(--royal-blue);
+            background-color: var(--dark-gray);
             color: var(--white);
             padding: 10px 20px;
             font-size: 16px;
@@ -84,16 +83,16 @@
         
         .btn-outline {
             background-color: transparent;
-            color: var(--royal-blue);
-            border: 2px solid var(--royal-blue);
+            color: var(--dark-gray);
+            border: 2px solid var(--dark-gray);
         }
         
         .btn:hover {
-            background-color: var(--medium-blue);
+            background-color: var(--medium-gray);
         }
         
         .btn-outline:hover {
-            background-color: var(--light-blue);
+            background-color: var(--lighter-gray);
         }
 
         /* Main Chat Container */
@@ -105,11 +104,11 @@
             margin-bottom: 20px;
         }
         
-        /* Sidebar - Chat History */
+        /* Sidebar - Preguntas Frecuentes */
         .chat-sidebar {
             width: 280px;
             background-color: var(--white);
-            border-right: 1px solid var(--medium-blue);
+            border-right: 1px solid var(--medium-gray);
             display: flex;
             flex-direction: column;
             overflow: hidden;
@@ -117,7 +116,7 @@
         
         .sidebar-header {
             padding: 15px;
-            background-color: var(--royal-blue);
+            background-color: var(--dark-gray);
             color: var(--white);
             font-weight: bold;
             display: flex;
@@ -125,47 +124,31 @@
             align-items: center;
         }
         
-        .chat-history {
+        .faq-list {
             flex: 1;
             overflow-y: auto;
             padding: 10px;
         }
         
-        .history-item {
+        .faq-item {
             padding: 12px 15px;
             border-bottom: 1px solid var(--light-gray);
             cursor: pointer;
             transition: background-color 0.2s;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
         }
         
-        .history-item:hover {
-            background-color: var(--light-blue);
+        .faq-item:hover {
+            background-color: var(--lighter-gray);
         }
         
-        .history-item.active {
-            background-color: var(--light-blue);
-            border-left: 4px solid var(--royal-blue);
+        .faq-item.active {
+            background-color: var(--lighter-gray);
+            border-left: 4px solid var(--dark-gray);
         }
         
-        .history-item .chat-title {
+        .faq-item .faq-question {
             font-weight: bold;
             color: var(--dark-gray);
-        }
-        
-        .history-item .chat-preview {
-            font-size: 14px;
-            color: var(--gray);
-            margin-top: 5px;
-        }
-        
-        .history-item .chat-time {
-            font-size: 12px;
-            color: var(--gray);
-            text-align: right;
-            margin-top: 5px;
         }
         
         /* Main Chat */
@@ -180,7 +163,7 @@
         
         .chat-header {
             padding: 15px 20px;
-            background-color: var(--royal-blue);
+            background-color: var(--dark-gray);
             color: var(--white);
             display: flex;
             align-items: center;
@@ -227,7 +210,7 @@
         }
         
         .user-message .message-content {
-            background-color: var(--medium-blue);
+            background-color: var(--medium-gray);
             color: var(--white);
             border-top-right-radius: 4px;
         }
@@ -261,7 +244,7 @@
         .chat-input {
             flex: 1;
             padding: 12px 15px;
-            border: 1px solid var(--medium-blue);
+            border: 1px solid var(--medium-gray);
             border-radius: 20px;
             font-size: 16px;
             outline: none;
@@ -269,11 +252,11 @@
         }
         
         .chat-input:focus {
-            border-color: var(--royal-blue);
+            border-color: var(--dark-gray);
         }
         
         .send-button {
-            background-color: var(--royal-blue);
+            background-color: var(--dark-gray);
             color: var(--white);
             border: none;
             border-radius: 50%;
@@ -287,56 +270,7 @@
         }
         
         .send-button:hover {
-            background-color: var(--medium-blue);
-        }
-        
-        /* New Chat Button */
-        .new-chat-btn {
-            padding: 12px;
-            background-color: var(--royal-blue);
-            color: var(--white);
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            font-weight: bold;
-        }
-        
-        .new-chat-btn:hover {
-            background-color: var(--medium-blue);
-        }
-
-        /* Welcome Message */
-        .welcome-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            padding: 20px;
-            text-align: center;
-            background-color: var(--light-blue);
-        }
-        
-        .welcome-container h2 {
-            color: var(--royal-blue);
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
-        
-        .welcome-container p {
-            color: var(--gray);
-            margin-bottom: 30px;
-            max-width: 600px;
-        }
-        
-        .welcome-actions {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
+            background-color: var(--medium-gray);
         }
         
         /* Animations */
@@ -359,7 +293,7 @@
             .chat-sidebar {
                 width: 100%;
                 border-right: none;
-                border-bottom: 1px solid var(--medium-blue);
+                border-bottom: 1px solid var(--medium-gray);
                 max-height: 200px;
             }
             
@@ -391,21 +325,12 @@
                 <div class="header-buttons">
                     <button class="btn btn-outline">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M15 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H9" stroke="#0a3470" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="#0a3470" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M12 15V19" stroke="#0a3470" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M12 9V5" stroke="#0a3470" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M15 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H9" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 15V19" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 9V5" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                         <a href="login.html">LOG IN</a>
-                    </button>
-                    <button class="btn">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 9.20914 6.79086 11 9 11Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M23 20.9999V18.9999C22.9993 18.1136 22.7044 17.2527 22.1614 16.5522C21.6184 15.8517 20.8581 15.3515 20 15.1299" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M16 3.12988C16.8604 3.35018 17.623 3.85058 18.1676 4.55219C18.7122 5.2538 19.0078 6.11671 19.0078 7.00488C19.0078 7.89305 18.7122 8.75596 18.1676 9.45757C17.623 10.1592 16.8604 10.6596 16 10.8799" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <a href="chatbotaspirante.html">SOY ASPIRANTE</a>
                     </button>
                 </div>
             </div>
@@ -413,25 +338,48 @@
     </header>
 
     <div class="container chat-container">
-        <!-- Chat Sidebar - History -->
+        <!-- Chat Sidebar - Preguntas Frecuentes -->
         <div class="chat-sidebar">
-            <button class="new-chat-btn">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 5V19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M5 12H19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                Nueva Conversación
-            </button>
-            
             <div class="sidebar-header">
-                <span>Historial de Conversaciones</span>
+                <span>Preguntas Frecuentes</span>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M21 11.5C21.0034 12.8199 20.6951 14.1219 20.1 15.3C19.3944 16.7118 18.3098 17.8992 16.9674 18.7293C15.6251 19.5594 14.0782 19.9994 12.5 20C11.1801 20.0035 9.87812 19.6951 8.7 19.1L3 21L4.9 15.3C4.30493 14.1219 3.99656 12.8199 4 11.5C4.00061 9.92179 4.44061 8.37488 5.27072 7.03258C6.10083 5.69028 7.28825 4.6056 8.7 3.90003C9.87812 3.30496 11.1801 2.99659 12.5 3.00003H13C15.0843 3.11502 17.053 3.99479 18.5291 5.47089C20.0052 6.94699 20.885 8.91568 21 11V11.5Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 16V12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 8H12.01" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </div>
             
-            <div class="chat-history">
-                <!-- Contenido del historial de conversaciones eliminado -->
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">¿Cómo puedo solicitar admisión?</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">¿Cuáles son los requisitos de ingreso?</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">¿Cuándo son las fechas de examen?</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">¿Qué carreras ofrece el campus?</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">¿Hay becas disponibles?</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">¿Cómo es el proceso de inscripción?</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">¿Cuál es el costo de la matrícula?</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">¿Ofrecen programas de intercambio?</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">¿Qué documentos necesito presentar?</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">¿Hay visitas guiadas al campus?</div>
+                </div>
             </div>
         </div>
         
@@ -440,9 +388,8 @@
             <div class="chat-header">
                 <div class="chat-header-title">
                     <span class="status-indicator"></span>
-                    <h3>WolfAI Asistente</h3>
+                    <h3>WolfAI guía para aspirantes</h3>
                 </div>
-                <!-- Botones de configuración y cerrar eliminados -->
             </div>
             
             <div class="chat-messages">
@@ -466,6 +413,7 @@
             const chatInput = document.querySelector('.chat-input');
             const sendButton = document.querySelector('.send-button');
             const chatMessages = document.querySelector('.chat-messages');
+            const faqItems = document.querySelectorAll('.faq-item');
         
             function addMessage(text, isUser = false) {
                 const messageDiv = document.createElement('div');
@@ -549,16 +497,17 @@
                 }
             });
         
-            const newChatBtn = document.querySelector('.new-chat-btn');
-            if (newChatBtn) {
-                newChatBtn.addEventListener('click', function() {
-                    chatMessages.innerHTML = '';
-                    addMessage('¡Hola! Soy WolfAI, tu asistente académico del TecNM Campus Mérida. ¿En qué puedo ayudarte hoy?');
+            // Manejar clics en preguntas frecuentes
+            faqItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const question = this.querySelector('.faq-question').textContent;
+                    chatInput.value = question;
+                    sendMessage();
                 });
-            }
+            });
         
-            addMessage('¡Hola! Soy WolfAI, tu asistente académico del TecNM Campus Mérida. ¿En qué puedo ayudarte hoy?');
+            addMessage('¡Hola! Soy WolfAI, tu guía para aspirantes del TecNM Campus Mérida. Puedo ayudarte con información sobre el proceso de admisión, requisitos, carreras disponibles y más. ¿Qué te gustaría saber sobre tu futuro en nuestra institución?');
         });
-        </script>
-        
+    </script>
+</body>
 </html>
