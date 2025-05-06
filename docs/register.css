@@ -1,4 +1,3 @@
-
 :root {
     --royal-blue: #0a3470;
     --light-blue: #e9f0f8;
@@ -19,10 +18,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    padding: 20px;
 }
 
-.login-container {
+.register-container {
     background-color: var(--white);
     border: 2px solid var(--royal-blue);
     padding: 40px;
@@ -32,12 +32,12 @@ body {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.logo {
+.register-logo {
     text-align: center;
     margin-bottom: 30px;
 }
 
-.logo h1 {
+.register-logo h1 {
     font-size: 36px;
     color: var(--royal-blue);
 }
@@ -54,6 +54,7 @@ label {
     color: var(--gray);
 }
 
+input[type="text"],
 input[type="email"],
 input[type="password"] {
     width: 100%;
@@ -63,7 +64,39 @@ input[type="password"] {
     font-size: 16px;
 }
 
-.btn {
+.name-row {
+    display: flex;
+    gap: 10px;
+}
+
+.name-field {
+    flex: 1;
+}
+
+.terminos-cont {
+    margin-top: 15px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.terminos-cont input[type="checkbox"] {
+    margin-top: 18.3px;
+    margin-left: 10px;
+}
+
+.terminos-cont a {
+    color: var(--royal-blue);
+    text-decoration: none;
+}
+
+.terminos-cont a:hover {
+    text-decoration: underline;
+}
+
+.register-btn {
     display: block;
     width: 100%;
     margin-top: 20px;
@@ -77,52 +110,20 @@ input[type="password"] {
     font-weight: bold;
 }
 
-.btn:hover {
+.register-btn:hover {
     background-color: var(--medium-blue);
 }
 
-.btn-outline {
-    display: inline-flex;
-    align-items: center;
-    border: 2px solid var(--royal-blue);
-    background-color: transparent;
-    color: var(--royal-blue);
-    font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.btn-outline:hover {
-    background-color: var(--royal-blue);
-    color: white;
-}
-
-.register-link {
+.SiHayCuenta {
     margin-top: 15px;
     text-align: center;
 }
 
-.register-link a {
+.SiHayCuenta a {
     color: var(--royal-blue);
     text-decoration: none;
 }
 
-.register-link a:hover {
-    text-decoration: underline;
-}
-
-.contraseña-link {
-    margin-top: 15px;
-    text-align: center;
-}
-
-.contraseña-link a {
-    color: var(--royal-blue);
-    text-decoration: none;
-}
-
-.contraseña-link a:hover {
+.SiHayCuenta a:hover {
     text-decoration: underline;
 }
